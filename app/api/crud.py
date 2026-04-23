@@ -1,6 +1,8 @@
+from typing import List, Union
+
 from app.models.pydantic import SummaryPayloadSchema
 from app.models.tortoise import TextSummary
-from typing import Union, Optional, List
+
 
 async def post(payload: SummaryPayloadSchema) -> int:
     summary = TextSummary(
