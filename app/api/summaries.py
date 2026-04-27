@@ -13,8 +13,8 @@ router = APIRouter()
 async def create_summary(payload: SummaryPayloadSchema) -> SummaryResponseSchema:
     summary_id = await crud.post(payload)
 
-    summary = await crud.get(summary_id)
-    return summary
+    response_object = {"id": summary_id, "url": payload.url}
+    return response_object
 
 
 @router.get("/", response_model=List[SummarySchema])
